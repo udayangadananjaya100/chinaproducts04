@@ -1,0 +1,2660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Jiayu Hardware & Appliance Base Interactive Catalogue | 东阳佳誉产品目录</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-alt: #f1f5f9;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --primary-soft: #e0f2fe;
+      --accent: #0f766e;
+      --danger: #dc2626;
+      --danger-soft: #fee2e2;
+      --mega-bg: #fef3c7;
+      --mega-text: #92400e;
+      --mega-border: #f59e0b;
+      --strong-bg: #dcfce7;
+      --strong-text: #166534;
+      --strong-border: #22c55e;
+      --niche-bg: #e0f2fe;
+      --niche-text: #075985;
+      --niche-border: #38bdf8;
+      --low-bg: #f1f5f9;
+      --low-text: #475569;
+      --low-border: #94a3b8;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.16);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Noto Sans Sinhala", "Sinhala Sangam MN", "Sinhala MN", "Nirmala UI", "Iskoola Pota",
+        "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      line-height: 1.45;
+      min-height: 100vh;
+      padding-bottom: 84px;
+    }
+
+    button, input, select {
+      font-family: inherit;
+      color: inherit;
+    }
+
+    /* Interactive Touch Targets >= 44x44px */
+    .qadd, .qty-step, .gal-nav, .rm, .x, .chip, select, .btn-touch {
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Top Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0284c7, #0f766e);
+      color: #fff;
+      font-weight: 800;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .brand-text p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .ctrl-select {
+      height: 44px;
+      padding: 0 10px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .rates-pill-btn {
+      height: 44px;
+      padding: 0 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #bae6fd;
+      background: var(--primary-soft);
+      color: #0369a1;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .rates-pill-btn:hover {
+      background: #bae6fd;
+    }
+
+    .cart-trigger-btn {
+      height: 44px;
+      padding: 0 14px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
+      transition: background 0.15s ease;
+    }
+
+    .cart-trigger-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    .cart-badge {
+      background: #fff;
+      color: var(--primary);
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    /* Filter & Search Bar */
+    .controls-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .search-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box input {
+      width: 100%;
+      height: 44px;
+      padding: 0 44px 0 38px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      font-size: 0.95rem;
+    }
+
+    .search-box input:focus {
+      outline: 2px solid var(--primary);
+      border-color: transparent;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      color: var(--text-light);
+      pointer-events: none;
+      font-size: 1rem;
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 2px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: transparent;
+      color: var(--text-light);
+      font-size: 1.1rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .price-filter-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface-alt);
+      padding: 0 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      height: 44px;
+    }
+
+    .price-filter-group span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .price-filter-group input {
+      width: 78px;
+      height: 32px;
+      padding: 0 6px;
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      background: var(--surface);
+      font-size: 0.85rem;
+    }
+
+    .view-toggle {
+      display: flex;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .view-btn {
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .view-btn.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Category Chips Bar */
+    .cats-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 0 6px 0;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .chip {
+      padding: 0 14px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      font-weight: 600;
+      white-space: nowrap;
+      gap: 6px;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .chip:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .chip.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+    }
+
+    .chip.chip-winner {
+      border-color: #f59e0b;
+      background: #fffbeb;
+      color: #b45309;
+    }
+
+    .chip.chip-winner.active {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #fff;
+      border-color: #d97706;
+    }
+
+    .chip-count {
+      font-size: 0.74rem;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.08);
+    }
+
+    .chip.active .chip-count {
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
+    }
+
+    /* Main Content Container */
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .stats-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 8px;
+      transition: transform 0.25s ease;
+    }
+
+    .card:hover .card-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .card-code-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(15, 23, 42, 0.82);
+      color: #fff;
+      font-size: 0.73rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+    }
+
+    .win-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      line-height: 1.2;
+    }
+
+    .card .win-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    }
+
+    .win-mega {
+      background: var(--mega-bg);
+      color: var(--mega-text);
+      border-color: var(--mega-border);
+    }
+
+    .win-strong {
+      background: var(--strong-bg);
+      color: var(--strong-text);
+      border-color: var(--strong-border);
+    }
+
+    .win-niche {
+      background: var(--niche-bg);
+      color: var(--niche-text);
+      border-color: var(--niche-border);
+    }
+
+    .win-low {
+      background: var(--low-bg);
+      color: var(--low-text);
+      border-color: var(--low-border);
+    }
+
+    .card-body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 6px;
+    }
+
+    .card-cat {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-title {
+      font-size: 0.93rem;
+      font-weight: 700;
+      color: var(--text);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 2.65em;
+      cursor: pointer;
+    }
+
+    .card-variant {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      background: var(--surface-alt);
+      padding: 3px 7px;
+      border-radius: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    .card-specs span {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .price-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-primary {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.15;
+    }
+
+    .price-secondary {
+      font-size: 0.73rem;
+      color: var(--text-light);
+    }
+
+    .qadd {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      border: 1px solid var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+    }
+
+    .qadd:hover, .qadd.in-cart {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* List Table View */
+    .list-wrap {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .list-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
+      font-size: 0.86rem;
+    }
+
+    .list-table th, .list-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .list-table th {
+      background: var(--surface-alt);
+      font-weight: 700;
+      color: var(--text-muted);
+      position: sticky;
+      top: 0;
+    }
+
+    .list-table tr:hover td {
+      background: #f8fafc;
+    }
+
+    .list-thumb {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: pointer;
+    }
+
+    /* Modals & Bottom Sheets */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(3px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-sheet {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      max-width: 920px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.22s ease-out;
+    }
+
+    .modal-sheet.modal-sm {
+      max-width: 480px;
+    }
+
+    .sheet-handle {
+      width: 100%;
+      padding: 10px 0 4px 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    .sheet-handle-bar {
+      width: 42px;
+      height: 5px;
+      border-radius: 999px;
+      background: #cbd5e1;
+    }
+
+    .modal-header {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .modal-header h2 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .x {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      color: var(--text);
+      font-size: 1.2rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .modal-body {
+      padding: 16px;
+      overflow-y: auto;
+      flex: 1;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Product Detail Modal Layout */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 20px;
+    }
+
+    .gallery-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .gallery-main {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 8px;
+    }
+
+    .gal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--text);
+      font-size: 1.1rem;
+      font-weight: 800;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .gal-prev { left: 8px; }
+    .gal-next { right: 8px; }
+
+    .gallery-thumbs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .thumb-item {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      border: 2px solid var(--border);
+      padding: 3px;
+      background: #fff;
+      cursor: pointer;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .thumb-item.active {
+      border-color: var(--primary);
+    }
+
+    .info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .detail-price-box {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .spec-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+
+    .spec-label {
+      font-size: 0.74rem;
+      color: var(--text-light);
+    }
+
+    .spec-val {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* SL-WPI 4-Pillar Breakdown Box */
+    .wpi-box {
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      background: #fff;
+    }
+
+    .wpi-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .wpi-reason {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .pillar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pillar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .pillar-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .pillar-bar-bg {
+      width: 100%;
+      height: 7px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .pillar-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #0284c7, #10b981);
+    }
+
+    .pillar-desc {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    /* Detail Sticky Bottom Action Bar */
+    .detail-sticky-bar {
+      position: sticky;
+      bottom: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    .stepper-group {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .qty-step {
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: var(--surface-alt);
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .stepper-group input {
+      width: 60px;
+      height: 44px;
+      border: none;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .add-quote-btn {
+      flex: 1;
+      height: 44px;
+      border: none;
+      border-radius: var(--radius-sm);
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Cart Modal & Sticky Summary */
+    .cart-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .cart-table th, .cart-table td {
+      padding: 8px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .rm {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid #fecaca;
+      background: var(--danger-soft);
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    .cart-sticky-total {
+      position: sticky;
+      bottom: 0;
+      background: var(--surface-alt);
+      border-top: 2px solid var(--border-strong);
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .cart-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 8px;
+    }
+
+    .cart-stat-box {
+      background: var(--surface);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .cart-stat-box .lbl {
+      font-size: 0.72rem;
+      color: var(--text-light);
+    }
+
+    .cart-stat-box .val {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .cart-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-action {
+      flex: 1;
+      min-height: 44px;
+      padding: 0 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-action.primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .btn-action.danger {
+      background: var(--danger-soft);
+      color: var(--danger);
+      border-color: #fecaca;
+    }
+
+    /* Floating Bottom Mobile Cart Bar */
+    .mobile-cart-bar {
+      position: fixed;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      z-index: 50;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #fff;
+      border-radius: 14px;
+      padding: 10px 16px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+    }
+
+    .mobile-cart-bar.visible {
+      display: flex;
+    }
+
+    /* Mobile Ergonomics & Bottom Sheet Rules (<= 640px) */
+    @media (max-width: 640px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+
+      .controls-row {
+        grid-template-columns: 1fr;
+      }
+
+      .price-filter-group {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .price-filter-group input {
+        flex: 1;
+        height: 36px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .card-body {
+        padding: 9px;
+      }
+
+      .card-title {
+        font-size: 0.84rem;
+        -webkit-line-clamp: 2;
+      }
+
+      .price-primary {
+        font-size: 0.95rem;
+      }
+
+      .modal-backdrop {
+        padding: 0;
+        align-items: flex-end;
+      }
+
+      .modal-sheet {
+        max-width: 100%;
+        max-height: 92vh;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .sheet-handle {
+        display: flex;
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Print Quotation Styles */
+    #printHeader {
+      display: none;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #cart, #cart * {
+        visibility: visible;
+      }
+      #cart {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #fff;
+        padding: 0;
+        display: block !important;
+      }
+      .modal-sheet {
+        box-shadow: none;
+        max-width: 100%;
+        max-height: none;
+        overflow: visible;
+      }
+      .modal-body {
+        overflow: visible;
+      }
+      #printHeader {
+        display: block;
+        margin-bottom: 16px;
+        border-bottom: 2px solid #000;
+        padding-bottom: 8px;
+      }
+      .sheet-handle, .x, .rm, .cart-actions, .site-header, .main-container, .mobile-cart-bar {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-row">
+        <div class="brand-title-wrap">
+          <div class="brand-logo">JY</div>
+          <div class="brand-text">
+            <h1 id="uiTitle">Jiayu Appliance Base & Hardware Catalogue</h1>
+            <p id="uiSubtitle">Factory Direct Pricing • Sea Cargo SL-WPI Scored • Offline Ready</p>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <select id="lang" class="ctrl-select" aria-label="Language">
+            <option value="en">🇬🇧 English</option>
+            <option value="si">🇱🇰 සිංහල (Sinhala)</option>
+            <option value="zh">🇨🇳 中文 (Chinese)</option>
+            <option value="es">🇪🇸 Español (Spanish)</option>
+          </select>
+
+          <select id="curr" class="ctrl-select" aria-label="Currency">
+            <option value="LKR">LKR (රු.)</option>
+            <option value="RMB">RMB (¥)</option>
+            <option value="USD">USD ($)</option>
+          </select>
+
+          <button id="ratesBtn" class="rates-pill-btn btn-touch" type="button" title="Customize Exchange Rates">
+            <span>💱</span>
+            <span id="ratesPillText">1¥ = රු.43.50</span>
+          </button>
+
+          <button id="cartBtn" class="cart-trigger-btn btn-touch" type="button">
+            <span>🛒</span>
+            <span id="uiQuoteBtn">Quote</span>
+            <span id="cartCountBadge" class="cart-badge">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search, Price Filter, Sort & View Mode -->
+      <div class="controls-row">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input id="q" type="search" placeholder="Search model code, Sinhala/English/Chinese name, specs..." autocomplete="off">
+          <button id="qClear" class="search-clear" type="button" aria-label="Clear search">✕</button>
+        </div>
+
+        <div class="price-filter-group">
+          <span id="uiPriceRangeLbl">Price (රු.):</span>
+          <input id="pmin" type="number" step="any" min="0" placeholder="Min">
+          <span>–</span>
+          <input id="pmax" type="number" step="any" min="0" placeholder="Max">
+        </div>
+
+        <select id="sort" class="ctrl-select" aria-label="Sort order">
+          <option value="win-desc" id="optSortWinDesc">🏆 Winning Score: High → Low</option>
+          <option value="win-asc" id="optSortWinAsc">Winning Score: Low → High</option>
+          <option value="price-asc" id="optSortPriceAsc">Price: Low → High</option>
+          <option value="price-desc" id="optSortPriceDesc">Price: High → Low</option>
+          <option value="pcs-desc" id="optSortPcsDesc">Pcs/Carton: High → Low</option>
+          <option value="cbm-asc" id="optSortCbmAsc">Volume (CBM): Low → High</option>
+          <option value="code-asc" id="optSortCodeAsc">Item Code: A → Z</option>
+        </select>
+
+        <div class="view-toggle">
+          <button id="viewGrid" class="view-btn active" type="button" title="Grid View">⊞</button>
+          <button id="viewList" class="view-btn" type="button" title="Table List View">☰</button>
+        </div>
+      </div>
+
+      <!-- Category Chips Bar -->
+      <div id="cats" class="cats-bar" role="tablist"></div>
+    </div>
+  </header>
+
+  <!-- Main Catalogue Container -->
+  <main class="main-container">
+    <div class="stats-bar">
+      <div id="resultsCount">Showing 0 products</div>
+      <div id="activeRateHint">Rates: 1 USD = 7.15 RMB • 1 RMB = 43.50 LKR</div>
+    </div>
+
+    <!-- Grid View -->
+    <div id="grid" class="product-grid"></div>
+
+    <!-- Table List View -->
+    <div id="listWrap" class="list-wrap">
+      <table id="listTable" class="list-table">
+        <thead>
+          <tr>
+            <th id="thImg">Image</th>
+            <th id="thCode">Code</th>
+            <th id="thName">Product Name</th>
+            <th id="thVariant">Variant / Spec</th>
+            <th id="thWin">SL-WPI Score</th>
+            <th id="thPcs">Pcs/Ctn</th>
+            <th id="thPrice">Unit Price</th>
+            <th id="thCbm">CBM / KG</th>
+            <th id="thAct">Quote</th>
+          </tr>
+        </thead>
+        <tbody id="listBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Floating Mobile Bottom Cart Bar -->
+  <div id="mobileCartBar" class="mobile-cart-bar">
+    <div>
+      <div style="font-size: 0.78rem; color: #94a3b8;" id="mCartLabel">Quotation Cart</div>
+      <div style="font-size: 0.95rem; font-weight: 800;" id="mCartSummary">0 Cartons • රු. 0</div>
+    </div>
+    <button type="button" class="btn-touch" style="background: #38bdf8; color: #0f172a; border: none; border-radius: 10px; padding: 0 14px; font-weight: 800;" id="mCartViewBtn">
+      View Quote →
+    </button>
+  </div>
+
+  <!-- Product Detail Modal (Bottom Sheet on Mobile) -->
+  <div id="detail" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-sheet" id="detailSheet">
+      <div class="sheet-handle" data-dismiss="detail"><div class="sheet-handle-bar"></div></div>
+      <div class="modal-header">
+        <h2 id="dTitle">Product Details</h2>
+        <button id="dClose" class="x" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" id="detailBody">
+        <div class="detail-grid">
+          <div class="gallery-col">
+            <div class="gallery-main" id="dGalleryMain">
+              <img id="dImg" src="" alt="Product Image">
+              <button id="dPrevImg" class="gal-nav gal-prev" type="button" aria-label="Previous image">‹</button>
+              <button id="dNextImg" class="gal-nav gal-next" type="button" aria-label="Next image">›</button>
+            </div>
+            <div id="dThumbs" class="gallery-thumbs"></div>
+          </div>
+
+          <div class="info-col">
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+              <span id="dCodeBadge" style="background:#0f172a; color:#fff; font-weight:800; font-size:0.82rem; padding:4px 10px; border-radius:6px;"></span>
+              <span id="dCatBadge" style="background:#e0f2fe; color:#0369a1; font-weight:700; font-size:0.78rem; padding:4px 10px; border-radius:6px;"></span>
+              <span id="dWinBadge" class="win-badge"></span>
+            </div>
+
+            <div id="dSubNames" style="font-size:0.82rem; color:var(--text-muted);"></div>
+            <div id="dVariantBadge" style="font-size:0.84rem; font-weight:600; background:var(--surface-alt); padding:6px 10px; border-radius:8px;"></div>
+
+            <div class="detail-price-box">
+              <div>
+                <div style="font-size:0.75rem; color:var(--text-light);" id="dUnitPriceLbl">Unit Price</div>
+                <div id="dPrice" style="font-size:1.35rem; font-weight:800; color:var(--accent);"></div>
+                <div id="dPriceRef" style="font-size:0.78rem; color:var(--text-light);"></div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:0.75rem; color:var(--text-light);" id="dCartonPriceLbl">Carton Price</div>
+                <div id="dCartonPrice" style="font-size:1.05rem; font-weight:800; color:var(--text);"></div>
+                <div id="dCartonRef" style="font-size:0.76rem; color:var(--text-light);"></div>
+              </div>
+            </div>
+
+            <div class="spec-grid" id="dSpecsGrid"></div>
+
+            <!-- SL-WPI 4-Pillar Breakdown Box -->
+            <div class="wpi-box" id="dWinBox">
+              <div class="wpi-header">
+                <strong style="font-size:0.88rem;" id="dWpiTitle">🇱🇰 Sri Lanka Winning Product Index (SL-WPI)</strong>
+                <span id="dWpiScorePill" class="win-badge"></span>
+              </div>
+              <div id="dWpiReason" class="wpi-reason"></div>
+              <div id="dWinPillars" class="pillar-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sticky Bottom Add-to-Quote Bar -->
+      <div class="detail-sticky-bar">
+        <div class="stepper-group">
+          <button id="dQtyMinus" class="qty-step" type="button" aria-label="Decrease cartons">−</button>
+          <input id="dQty" type="number" min="1" value="1" aria-label="Cartons quantity">
+          <button id="dQtyPlus" class="qty-step" type="button" aria-label="Increase cartons">+</button>
+        </div>
+        <button id="dAddBtn" class="add-quote-btn btn-touch" type="button">Add Cartons to Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quotation Cart Modal (Bottom Sheet on Mobile) -->
+  <div id="cart" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-sheet" id="cartSheet">
+      <div class="sheet-handle" data-dismiss="cart"><div class="sheet-handle-bar"></div></div>
+      <div class="modal-header">
+        <h2 id="uiCartModalTitle">🛒 Quotation Builder & Export</h2>
+        <button id="cartClose" class="x" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="printHeader">
+          <h2>JIAYU HARDWARE & APPLIANCE BASE — QUOTATION SHEET</h2>
+          <p id="printMetaDate"></p>
+        </div>
+        <div id="cartEmptyMsg" style="padding:32px; text-align:center; color:var(--text-muted);">
+          Your quotation cart is empty. Click "+" on any product to add cartons.
+        </div>
+        <div id="cartTableWrap" style="overflow-x:auto; display:none;">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th id="cthCode">Code</th>
+                <th id="cthProduct">Product</th>
+                <th id="cthCartons">Cartons</th>
+                <th id="cthPcs">Total Pcs</th>
+                <th id="cthUnit">Unit Price</th>
+                <th id="cthTotal">Subtotal</th>
+                <th id="cthCbmKg">CBM / KG</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="cartBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Sticky Quotation Total Summary Bar -->
+      <div id="cartStickyTotal" class="cart-sticky-total">
+        <div class="cart-summary-grid">
+          <div class="cart-stat-box">
+            <div class="lbl" id="lblTotCartons">Total Cartons</div>
+            <div class="val" id="totCartons">0</div>
+          </div>
+          <div class="cart-stat-box">
+            <div class="lbl" id="lblTotPcs">Total Pieces</div>
+            <div class="val" id="totPcs">0</div>
+          </div>
+          <div class="cart-stat-box">
+            <div class="lbl" id="lblTotCbm">Total Volume</div>
+            <div class="val" id="totCbm">0.000 m³</div>
+          </div>
+          <div class="cart-stat-box">
+            <div class="lbl" id="lblTotKg">Total Weight</div>
+            <div class="val" id="totKg">0.00 kg</div>
+          </div>
+          <div class="cart-stat-box" style="grid-column: span 2;">
+            <div class="lbl" id="lblTotAmount">Estimated Total</div>
+            <div class="val" id="totAmount" style="color:var(--accent);">රු. 0.00</div>
+            <div id="totAmountRef" style="font-size:0.74rem; color:var(--text-light);">¥0.00</div>
+          </div>
+        </div>
+        <div class="cart-actions">
+          <button id="exportCsvBtn" class="btn-action primary btn-touch" type="button">📥 Export CSV (Excel)</button>
+          <button id="printQuoteBtn" class="btn-action btn-touch" type="button">🖨️ Print Quote</button>
+          <button id="clearCartBtn" class="btn-action danger btn-touch" type="button">🗑️ Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Exchange Rates Modal (Bottom Sheet on Mobile) -->
+  <div id="ratesModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-sheet modal-sm" id="ratesSheet">
+      <div class="sheet-handle" data-dismiss="ratesModal"><div class="sheet-handle-bar"></div></div>
+      <div class="modal-header">
+        <h2 id="uiRatesTitle">💱 Customize Exchange Rates</h2>
+        <button id="ratesClose" class="x" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" style="display:flex; flex-direction:column; gap:14px;">
+        <div>
+          <label for="rateUsd" id="lblRateUsd" style="display:block; font-size:0.85rem; font-weight:700; margin-bottom:4px;">
+            1 USD ($) in RMB (¥) — Default: 7.15
+          </label>
+          <input id="rateUsd" type="text" inputmode="decimal" value="7.15" style="width:100%; height:44px; padding:0 12px; border:1px solid var(--border-strong); border-radius:8px; font-weight:700;">
+        </div>
+        <div>
+          <label for="rateLkr" id="lblRateLkr" style="display:block; font-size:0.85rem; font-weight:700; margin-bottom:4px;">
+            1 RMB (¥) in Sri Lankan Rupees (LKR රු.) — Default: 43.50
+          </label>
+          <input id="rateLkr" type="text" inputmode="decimal" value="43.50" style="width:100%; height:44px; padding:0 12px; border:1px solid var(--border-strong); border-radius:8px; font-weight:700;">
+        </div>
+        <div id="ratePreview" style="background:var(--surface-alt); border:1px solid var(--border); border-radius:8px; padding:10px; font-size:0.82rem; color:var(--text-muted);"></div>
+        <div style="display:flex; gap:8px;">
+          <button id="saveRatesBtn" class="btn-action primary btn-touch" type="button">💾 Save Rates</button>
+          <button id="resetRatesBtn" class="btn-action btn-touch" type="button">↺ Reset Defaults</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Offline Dataset -->
+  <script src="data/products.js"></script>
+  <script>
+    /* =========================================================================
+       1. Complete 4-Language I18N Dictionary (EN / SI / ZH / ES)
+       ========================================================================= */
+    const I18N = {
+      en: {
+        title: "Jiayu Appliance Base & Hardware Catalogue",
+        subtitle: "Factory Direct Pricing • Sea Cargo SL-WPI Scored • Offline Ready",
+        quoteBtn: "Quote",
+        searchPlaceholder: "Search code, Sinhala/English/Chinese name, specs...",
+        priceRange: "Price",
+        sortWinDesc: "🏆 Winning Score: High → Low",
+        sortWinAsc: "Winning Score: Low → High",
+        sortPriceAsc: "Price: Low → High",
+        sortPriceDesc: "Price: High → Low",
+        sortPcsDesc: "Pcs/Carton: High → Low",
+        sortCbmAsc: "Volume (CBM): Low → High",
+        sortCodeAsc: "Item Code: A → Z",
+        allCategories: "All Products",
+        topWinnersChip: "🏆 Top Winners (70+ pts)",
+        showingProducts: "Showing {n} of {t} products",
+        pcsPerCtn: "Pcs/Carton",
+        cartonCbm: "Carton CBM",
+        cartonKg: "Carton Weight",
+        unitKg: "Unit Weight",
+        boxSize: "Carton Size",
+        unitPrice: "Unit Price",
+        cartonPrice: "Carton Price",
+        addToQuote: "Add Cartons to Quote",
+        wpiTitle: "🇱🇰 Sri Lanka Winning Product Index (SL-WPI)",
+        pillarFreight: "1. Freight & Sea Cargo Efficiency",
+        pillarMargin: "2. Profit Margin & SL Retail Sweet Spot",
+        pillarDemand: "3. Local Consumer Demand & Viral Appeal",
+        pillarRisk: "4. Operational & COD Return Risk",
+        tierMega: "🏆 Mega Winner",
+        tierStrong: "⭐ Strong Winner",
+        tierNiche: "⚖️ Niche Product",
+        tierLow: "⚠️ Low Feasibility",
+        cartTitle: "🛒 Quotation Builder & Export",
+        cartEmpty: "Your quotation cart is empty. Tap '+' on any product to add cartons.",
+        totCartons: "Total Cartons",
+        totPcs: "Total Pieces",
+        totCbm: "Total Volume",
+        totKg: "Total Weight",
+        totAmount: "Estimated Total",
+        exportCsv: "📥 Export CSV (Excel)",
+        printQuote: "🖨️ Print Quote",
+        clearCart: "🗑️ Clear",
+        ratesTitle: "💱 Customize Exchange Rates",
+        saveRates: "💾 Save Rates",
+        resetRates: "↺ Reset Defaults",
+        thImg: "Image",
+        thCode: "Code",
+        thName: "Product Name",
+        thVariant: "Variant / Spec",
+        thWin: "SL-WPI Score",
+        thPcs: "Pcs/Ctn",
+        thPrice: "Unit Price",
+        thCbm: "CBM / KG",
+        thAct: "Quote",
+        csvHeaders: [
+          "Item Code", "Variant", "Localized Name", "English Name", "Chinese Name",
+          "Winning Score", "Winning Rate", "Winning Tier", "Cartons", "Pcs/Carton",
+          "Total Pcs", "Unit Price", "Unit Price (RMB)", "Total Amount", "Total Amount (RMB)",
+          "Total CBM (m3)", "Total Weight (KG)", "Box Size (cm)"
+        ]
+      },
+      si: {
+        title: "ජියායූ (Jiayu) ගෘහ උපකරණ ආධාරක සහ දෘඪාංග නාමාවලිය",
+        subtitle: "කර්මාන්තශාලා සෘජු මිල • ශ්‍රී ලංකා Sea Cargo SL-WPI ලකුණු • Offline ක්‍රියාත්මක වේ",
+        quoteBtn: "මිල ගණන් (Quote)",
+        searchPlaceholder: "කේතය, සිංහල/ඉංග්‍රීසි නම හෝ විස්තර අනුව සොයන්න...",
+        priceRange: "මිල",
+        sortWinDesc: "🏆 ජයග්‍රාහී ලකුණු: වැඩි → අඩු",
+        sortWinAsc: "ජයග්‍රාහී ලකුණු: අඩු → වැඩි",
+        sortPriceAsc: "මිල: අඩු → වැඩි",
+        sortPriceDesc: "මිල: වැඩි → අඩු",
+        sortPcsDesc: "පෙට්ටියක කෑලි: වැඩි → අඩු",
+        sortCbmAsc: "පරිමාව (CBM): අඩු → වැඩි",
+        sortCodeAsc: "භාණ්ඩ කේතය: A → Z",
+        allCategories: "සියලුම භාණ්ඩ",
+        topWinnersChip: "🏆 ඉහළම ජයග්‍රාහී භාණ්ඩ (70+ pts)",
+        showingProducts: "භාණ්ඩ {t} න් {n} ක් පෙන්වයි",
+        pcsPerCtn: "පෙට්ටියකට කෑලි (Pcs/Ctn)",
+        cartonCbm: "පෙට්ටියේ පරිමාව (CBM)",
+        cartonKg: "පෙට්ටියේ බර (KG)",
+        unitKg: "ඒකකයක බර (Unit KG)",
+        boxSize: "පෙට්ටියේ ප්‍රමාණය (Box Size)",
+        unitPrice: "ඒකක මිල (Unit Price)",
+        cartonPrice: "පෙට්ටියක මිල (Carton Price)",
+        addToQuote: "මිල කැඳවුමට එක් කරන්න (Add to Quote)",
+        wpiTitle: "🇱🇰 ශ්‍රී ලංකා ජයග්‍රාහී භාණ්ඩ දර්ශකය (SL-WPI)",
+        pillarFreight: "1. මුහුදු ප්‍රවාහන සහ නැව්ගත කිරීමේ කාර්යක්ෂමතාව (Freight)",
+        pillarMargin: "2. ලාභාංශය සහ ශ්‍රී ලංකා සිල්ලර මිල යෝග්‍යතාව (Margin)",
+        pillarDemand: "3. දේශීය පාරිභෝගික ඉල්ලුම සහ ආකර්ෂණය (Demand)",
+        pillarRisk: "4. මෙහෙයුම් සහ COD ආපසු එවීමේ අවදානම (Risk)",
+        tierMega: "🏆 සුපිරි ජයග්‍රාහී භාණ්ඩය",
+        tierStrong: "⭐ ඉහළ විකුණුම් හැකියාවක් ඇති",
+        tierNiche: "⚖️ විශේෂිත වෙළඳපොළ භාණ්ඩය",
+        tierLow: "⚠️ අඩු යෝග්‍යතාවයක් ඇති",
+        cartTitle: "🛒 මිල ගණන් ලැයිස්තුව (Quotation Builder)",
+        cartEmpty: "ඔබගේ මිල ගණන් ලැයිස්තුව හිස්ය. භාණ්ඩ එක් කිරීමට '+' බොත්තම ඔබන්න.",
+        totCartons: "මුළු පෙට්ටි ගණන",
+        totPcs: "මුළු කෑලි ගණන",
+        totCbm: "මුළු පරිමාව (CBM)",
+        totKg: "මුළු බර (KG)",
+        totAmount: "මුළු වටිනාකම",
+        exportCsv: "📥 CSV බාගන්න (Excel)",
+        printQuote: "🖨️ මුද්‍රණය කරන්න (Print)",
+        clearCart: "🗑️ ඉවත් කරන්න",
+        ratesTitle: "💱 විනිමය අනුපාත වෙනස් කරන්න (Exchange Rates)",
+        saveRates: "💾 සුරකින්න (Save)",
+        resetRates: "↺ පෙරනිමි අගයන් (Reset)",
+        thImg: "රූපය",
+        thCode: "කේතය",
+        thName: "භාණ්ඩයේ නම",
+        thVariant: "විශේෂාංග / ප්‍රමාණය",
+        thWin: "SL-WPI ලකුණු",
+        thPcs: "කෑලි/පෙට්ටි",
+        thPrice: "ඒකක මිල",
+        thCbm: "පරිමාව / බර",
+        thAct: "එක් කරන්න",
+        csvHeaders: [
+          "භාණ්ඩ කේතය (Code)", "ප්‍රමාණය/විශේෂාංග (Variant)", "සිංහල නම (Sinhala Name)", "English Name", "Chinese Name",
+          "SL-WPI ලකුණු (Score)", "ප්‍රතිශතය (Rate)", "කාණ්ඩය (Tier)", "පෙට්ටි ගණන (Cartons)", "පෙට්ටියකට කෑලි (Pcs/Ctn)",
+          "මුළු කෑලි (Total Pcs)", "ඒකක මිල (Unit Price)", "ඒකක මිල (RMB)", "මුළු මුදල (Total)", "මුළු මුදල (RMB)",
+          "මුළු පරිමාව (CBM)", "මුළු බර (KG)", "පෙට්ටියේ ප්‍රමාණය (Box Size)"
+        ]
+      },
+      zh: {
+        title: "东阳佳誉家电底座与五金互动产品目录",
+        subtitle: "工厂直销报价 • 斯里兰卡海运选品指数 (SL-WPI) • 离线可用",
+        quoteBtn: "报价单",
+        searchPlaceholder: "搜索型号、中文/英文/僧伽罗文名称、规格...",
+        priceRange: "价格",
+        sortWinDesc: "🏆 选品指数：从高到低",
+        sortWinAsc: "选品指数：从低到高",
+        sortPriceAsc: "价格：从低到高",
+        sortPriceDesc: "价格：从高到低",
+        sortPcsDesc: "装箱数：从多到少",
+        sortCbmAsc: "体积 (CBM)：从小到大",
+        sortCodeAsc: "型号编码：A → Z",
+        allCategories: "全部产品",
+        topWinnersChip: "🏆 爆款推荐 (70分+)",
+        showingProducts: "显示 {n} / 共 {t} 款产品",
+        pcsPerCtn: "装箱数 (Pcs/Ctn)",
+        cartonCbm: "外箱体积 (CBM)",
+        cartonKg: "整箱毛重 (KG)",
+        unitKg: "单件净重 (KG)",
+        boxSize: "外箱尺寸 (cm)",
+        unitPrice: "出厂单价",
+        cartonPrice: "整箱价格",
+        addToQuote: "加入报价单",
+        wpiTitle: "🇱🇰 斯里兰卡海运爆品指数 (SL-WPI)",
+        pillarFreight: "1. 海运体积重与物流效率",
+        pillarMargin: "2. 利润空间与当地零售甜点区",
+        pillarDemand: "3. 本地刚需度与社媒传播力",
+        pillarRisk: "4. 售后安装与货到付款拒收风险",
+        tierMega: "🏆 超级爆款",
+        tierStrong: "⭐ 强力推荐",
+        tierNiche: "⚖️ 细分市场",
+        tierLow: "⚠️ 低可行性",
+        cartTitle: "🛒 报价单生成与导出",
+        cartEmpty: "报价单为空，点击任意产品上的“+”即可添加整箱数量。",
+        totCartons: "总箱数",
+        totPcs: "总件数",
+        totCbm: "总体积 (CBM)",
+        totKg: "总重量 (KG)",
+        totAmount: "预计总金额",
+        exportCsv: "📥 导出 CSV (Excel)",
+        printQuote: "🖨️ 打印报价单",
+        clearCart: "🗑️ 清空",
+        ratesTitle: "💱 自定义汇率设置",
+        saveRates: "💾 保存汇率",
+        resetRates: "↺ 恢复默认",
+        thImg: "图片",
+        thCode: "型号",
+        thName: "产品名称",
+        thVariant: "规格参数",
+        thWin: "选品指数",
+        thPcs: "装箱数",
+        thPrice: "单价",
+        thCbm: "体积 / 重量",
+        thAct: "报价",
+        csvHeaders: [
+          "型号编码", "规格参数", "当前语言名称", "英文名称", "中文名称",
+          "选品分数", "选品比率", "选品等级", "箱数", "装箱数",
+          "总件数", "单价", "单价(RMB)", "总金额", "总金额(RMB)",
+          "总体积(CBM)", "总重量(KG)", "外箱尺寸(cm)"
+        ]
+      },
+      es: {
+        title: "Catálogo Interactivo de Bases y Ferretería Jiayu",
+        subtitle: "Precios de Fábrica • Índice Marítimo SL-WPI • Funciona Sin Conexión",
+        quoteBtn: "Cotización",
+        searchPlaceholder: "Buscar código, nombre, especificaciones...",
+        priceRange: "Precio",
+        sortWinDesc: "🏆 Puntuación Ganadora: Mayor a Menor",
+        sortWinAsc: "Puntuación Ganadora: Menor a Mayor",
+        sortPriceAsc: "Precio: Menor a Mayor",
+        sortPriceDesc: "Precio: Mayor a Menor",
+        sortPcsDesc: "Pzs/Caja: Mayor a Menor",
+        sortCbmAsc: "Volumen (CBM): Menor a Mayor",
+        sortCodeAsc: "Código: A → Z",
+        allCategories: "Todos los Productos",
+        topWinnersChip: "🏆 Top Ganadores (70+ pts)",
+        showingProducts: "Mostrando {n} de {t} productos",
+        pcsPerCtn: "Pzs/Caja",
+        cartonCbm: "Volumen Caja (CBM)",
+        cartonKg: "Peso Caja (KG)",
+        unitKg: "Peso Unitario (KG)",
+        boxSize: "Dimensión Caja (cm)",
+        unitPrice: "Precio Unitario",
+        cartonPrice: "Precio por Caja",
+        addToQuote: "Añadir Cajas a Cotización",
+        wpiTitle: "🇱🇰 Índice de Producto Ganador Sri Lanka (SL-WPI)",
+        pillarFreight: "1. Eficiencia de Flete Marítimo",
+        pillarMargin: "2. Margen y Precio Ideal Minorista",
+        pillarDemand: "3. Demanda Local y Atractivo Viral",
+        pillarRisk: "4. Riesgo Operativo y Devolución COD",
+        tierMega: "🏆 Mega Ganador",
+        tierStrong: "⭐ Fuerte Ganador",
+        tierNiche: "⚖️ Producto de Nicho",
+        tierLow: "⚠️ Baja Viabilidad",
+        cartTitle: "🛒 Generador de Cotización y Exportación",
+        cartEmpty: "Su carrito de cotización está vacío. Pulse '+' en cualquier producto.",
+        totCartons: "Total Cajas",
+        totPcs: "Total Piezas",
+        totCbm: "Volumen Total",
+        totKg: "Peso Total",
+        totAmount: "Total Estimado",
+        exportCsv: "📥 Exportar CSV (Excel)",
+        printQuote: "🖨️ Imprimir",
+        clearCart: "🗑️ Vaciar",
+        ratesTitle: "💱 Configurar Tasas de Cambio",
+        saveRates: "💾 Guardar Tasas",
+        resetRates: "↺ Restaurar",
+        thImg: "Imagen",
+        thCode: "Código",
+        thName: "Nombre del Producto",
+        thVariant: "Variante / Spec",
+        thWin: "Índice SL-WPI",
+        thPcs: "Pzs/Caja",
+        thPrice: "Precio Unit.",
+        thCbm: "CBM / KG",
+        thAct: "Cotizar",
+        csvHeaders: [
+          "Código", "Variante", "Nombre Localizado", "Nombre Inglés", "Nombre Chino",
+          "Puntuación SL-WPI", "Tasa SL-WPI", "Nivel SL-WPI", "Cajas", "Pzs/Caja",
+          "Total Piezas", "Precio Unitario", "Precio Unitario (RMB)", "Monto Total", "Monto Total (RMB)",
+          "CBM Total (m3)", "Peso Total (KG)", "Tamaño Caja (cm)"
+        ]
+      }
+    };
+
+    /* =========================================================================
+       2. ZWJ-Immune Normalization & State Management
+       ========================================================================= */
+    function norm(s) {
+      return String(s == null ? "" : s)
+        .replace(/[\u200B-\u200D\uFEFF]/g, "")
+        .toLowerCase()
+        .trim();
+    }
+    window.norm = norm;
+
+    const DEFAULT_RATES = { USD: 7.15, LKR: 43.50 };
+    const STORAGE_KEYS = {
+      LANG: "jy_catalog_lang_v1",
+      CURR: "jy_catalog_curr_v1",
+      RATES: "jy_catalog_rates_v1",
+      CART: "jy_catalog_cart_v1"
+    };
+
+    const state = {
+      lang: localStorage.getItem(STORAGE_KEYS.LANG) || "en",
+      curr: localStorage.getItem(STORAGE_KEYS.CURR) || "LKR",
+      rates: { ...DEFAULT_RATES },
+      cat: "all",
+      q: "",
+      pmin: null,
+      pmax: null,
+      sort: "win-desc",
+      view: "grid",
+      cart: {}, // { productId: cartonsCount }
+      activeProductId: null,
+      activeImgIdx: 0,
+      filteredProducts: []
+    };
+
+    // Load saved rates & cart from localStorage safely
+    try {
+      const savedRates = JSON.parse(localStorage.getItem(STORAGE_KEYS.RATES) || "null");
+      if (savedRates && Number(savedRates.USD) > 0 && Number(savedRates.LKR) > 0) {
+        state.rates.USD = Number(savedRates.USD);
+        state.rates.LKR = Number(savedRates.LKR);
+      }
+    } catch (e) {}
+
+    try {
+      const savedCart = JSON.parse(localStorage.getItem(STORAGE_KEYS.CART) || "null");
+      if (savedCart && typeof savedCart === "object") {
+        state.cart = savedCart;
+      }
+    } catch (e) {}
+
+    const CATALOG = window.CATALOG || { categories: [], products: [] };
+    const PRODUCTS = CATALOG.products || [];
+    const PRODUCT_BY_ID = {};
+
+    // Pre-build ZWJ-immune search haystack for every product
+    PRODUCTS.forEach(p => {
+      PRODUCT_BY_ID[p.id] = p;
+      const rawParts = [
+        p.code, p.rawCode, p.en, p.si, p.zh, p.es,
+        p.variant, p.variantEn, p.variantSi, p.variantZh, p.variantEs,
+        p.category,
+        p.categoryName ? `${p.categoryName.en} ${p.categoryName.si} ${p.categoryName.zh} ${p.categoryName.es}` : "",
+        p.winReason ? `${p.winReason.en} ${p.winReason.si} ${p.winReason.zh} ${p.winReason.es}` : "",
+        p.specs ? Object.values(p.specs).join(" ") : ""
+      ];
+      p._haystack = norm(rawParts.join(" "));
+    });
+
+    /* =========================================================================
+       3. Multi-Currency Conversion & Formatting Helpers
+       ========================================================================= */
+    function parseDecimalInput(val, fallback) {
+      if (val == null) return fallback;
+      const cleaned = String(val).trim().replace(",", ".");
+      const num = parseFloat(cleaned);
+      return Number.isFinite(num) && num > 0 ? num : fallback;
+    }
+
+    function currSymbol(curr = state.curr) {
+      if (curr === "USD") return "$";
+      if (curr === "LKR") return "රු.";
+      return "¥";
+    }
+
+    function convertFromRmb(rmb, curr = state.curr) {
+      const n = Number(rmb) || 0;
+      if (curr === "USD") return n / state.rates.USD;
+      if (curr === "LKR") return n * state.rates.LKR;
+      return n;
+    }
+
+    function formatCurrency(rmb, curr = state.curr) {
+      const val = convertFromRmb(rmb, curr);
+      if (curr === "USD") {
+        return "$" + val.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+      if (curr === "LKR") {
+        return "රු. " + val.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+      return "¥" + val.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function formatRefPrice(rmb, curr = state.curr) {
+      if (curr === "RMB") {
+        return `රු. ${(rmb * state.rates.LKR).toFixed(0)} • $${(rmb / state.rates.USD).toFixed(2)}`;
+      }
+      return `¥${Number(rmb).toFixed(2)} RMB`;
+    }
+
+    function getLocalizedName(p, lang = state.lang) {
+      return p[lang] || p.en || p.zh || p.code;
+    }
+
+    function getLocalizedVariant(p, lang = state.lang) {
+      if (lang === "si") return p.variantSi || p.variant;
+      if (lang === "zh") return p.variantZh || p.variant;
+      if (lang === "es") return p.variantEs || p.variant;
+      return p.variantEn || p.variant;
+    }
+
+    function getTierLabel(tier, lang = state.lang) {
+      const dict = I18N[lang] || I18N.en;
+      if (tier === "mega") return dict.tierMega;
+      if (tier === "strong") return dict.tierStrong;
+      if (tier === "niche") return dict.tierNiche;
+      return dict.tierLow;
+    }
+
+    /* =========================================================================
+       4. Filtering, Sorting & Rendering Engine
+       ========================================================================= */
+    function applyFiltersAndSort() {
+      const qNorm = norm(state.q);
+      const minVal = state.pmin !== null && state.pmin !== "" ? parseFloat(state.pmin) : null;
+      const maxVal = state.pmax !== null && state.pmax !== "" ? parseFloat(state.pmax) : null;
+
+      let list = PRODUCTS.filter(p => {
+        if (state.cat === "top-winners") {
+          if ((p.winScore || 0) < 70) return false;
+        } else if (state.cat !== "all" && p.category !== state.cat) {
+          return false;
+        }
+
+        if (qNorm && !p._haystack.includes(qNorm)) {
+          return false;
+        }
+
+        const activePrice = convertFromRmb(p.price, state.curr);
+        if (minVal !== null && Number.isFinite(minVal) && activePrice < minVal) {
+          return false;
+        }
+        if (maxVal !== null && Number.isFinite(maxVal) && activePrice > maxVal) {
+          return false;
+        }
+        return true;
+      });
+
+      list.sort((a, b) => {
+        switch (state.sort) {
+          case "win-desc":
+            return (b.winScore - a.winScore) || (a.price - b.price);
+          case "win-asc":
+            return (a.winScore - b.winScore) || (a.price - b.price);
+          case "price-asc":
+            return convertFromRmb(a.price) - convertFromRmb(b.price);
+          case "price-desc":
+            return convertFromRmb(b.price) - convertFromRmb(a.price);
+          case "pcs-desc":
+            return (b.pcsPerCarton || 0) - (a.pcsPerCarton || 0);
+          case "cbm-asc":
+            return (a.cbm ?? 999) - (b.cbm ?? 999);
+          case "code-asc":
+            return String(a.code).localeCompare(String(b.code));
+          default:
+            return b.winScore - a.winScore;
+        }
+      });
+
+      state.filteredProducts = list;
+      renderProducts();
+    }
+
+    function renderCategories() {
+      const dict = I18N[state.lang] || I18N.en;
+      const catsEl = document.getElementById("cats");
+      const topWinnersCount = PRODUCTS.filter(p => (p.winScore || 0) >= 70).length;
+
+      let html = `
+        <button type="button" class="chip ${state.cat === 'all' ? 'active' : ''}" data-cat="all">
+          <span>${dict.allCategories}</span>
+          <span class="chip-count">${PRODUCTS.length}</span>
+        </button>
+        <button type="button" class="chip chip-winner ${state.cat === 'top-winners' ? 'active' : ''}" data-cat="top-winners">
+          <span>${dict.topWinnersChip}</span>
+          <span class="chip-count">${topWinnersCount}</span>
+        </button>
+      `;
+
+      (CATALOG.categories || []).forEach(c => {
+        const label = c[state.lang] || c.en;
+        const active = state.cat === c.id ? "active" : "";
+        html += `
+          <button type="button" class="chip ${active}" data-cat="${c.id}">
+            <span>${label}</span>
+            <span class="chip-count">${c.count}</span>
+          </button>
+        `;
+      });
+
+      catsEl.innerHTML = html;
+      catsEl.querySelectorAll(".chip").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.cat = btn.getAttribute("data-cat");
+          renderCategories();
+          applyFiltersAndSort();
+        });
+      });
+    }
+
+    function renderProducts() {
+      const dict = I18N[state.lang] || I18N.en;
+      const gridEl = document.getElementById("grid");
+      const listWrapEl = document.getElementById("listWrap");
+      const listBodyEl = document.getElementById("listBody");
+      const countEl = document.getElementById("resultsCount");
+
+      countEl.textContent = dict.showingProducts
+        .replace("{n}", state.filteredProducts.length)
+        .replace("{t}", PRODUCTS.length);
+
+      if (state.view === "grid") {
+        gridEl.style.display = "grid";
+        listWrapEl.style.display = "none";
+
+        gridEl.innerHTML = state.filteredProducts.map(p => {
+          const title = getLocalizedName(p);
+          const variant = getLocalizedVariant(p);
+          const catName = p.categoryName ? (p.categoryName[state.lang] || p.categoryName.en) : p.category;
+          const inCartQty = state.cart[p.id] || 0;
+          const cbmTxt = p.cbm != null ? `${p.cbm} m³` : "—";
+          const kgTxt = p.kg != null ? `${p.kg} kg` : "—";
+
+          return `
+            <article class="card" data-id="${p.id}">
+              <div class="card-img-wrap" onclick="openDetail('${p.id}')">
+                <img src="${p.thumb}" alt="${ p.code }" loading="lazy">
+                <span class="card-code-badge">${p.code}</span>
+                <span class="win-badge win-${p.winTier}" title="${getTierLabel(p.winTier)}">
+                  ${p.winTier === 'mega' ? '🏆' : p.winTier === 'strong' ? '⭐' : p.winTier === 'niche' ? '⚖️' : '⚠️'} ${p.winScore} pts
+                </span>
+              </div>
+              <div class="card-body">
+                <div class="card-cat">${catName}</div>
+                <h3 class="card-title" onclick="openDetail('${p.id}')" title="${title}">${title}</h3>
+                <div class="card-variant" title="${variant}">${variant}</div>
+                <div class="card-specs">
+                  <span>📦 ${p.pcsPerCarton} pcs/ctn</span>
+                  <span>📐 ${cbmTxt}</span>
+                  <span>⚖️ ${kgTxt}</span>
+                </div>
+                <div class="card-footer">
+                  <div class="price-block">
+                    <span class="price-primary">${formatCurrency(p.price)}</span>
+                    <span class="price-secondary">${formatRefPrice(p.price)}</span>
+                  </div>
+                  <button type="button" class="qadd ${inCartQty > 0 ? 'in-cart' : ''}" onclick="quickAdd('${p.id}', event)" aria-label="Add carton to quote">
+                    ${inCartQty > 0 ? inCartQty : '+'}
+                  </button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join("");
+      } else {
+        gridEl.style.display = "none";
+        listWrapEl.style.display = "block";
+
+        listBodyEl.innerHTML = state.filteredProducts.map(p => {
+          const title = getLocalizedName(p);
+          const variant = getLocalizedVariant(p);
+          const inCartQty = state.cart[p.id] || 0;
+          const cbmTxt = p.cbm != null ? `${p.cbm} m³` : "—";
+          const kgTxt = p.kg != null ? `${p.kg} kg` : "—";
+
+          return `
+            <tr data-id="${p.id}">
+              <td><img src="${p.thumb}" alt="${p.code}" class="list-thumb" onclick="openDetail('${p.id}')" loading="lazy"></td>
+              <td><strong>${p.code}</strong></td>
+              <td style="cursor:pointer; font-weight:700;" onclick="openDetail('${p.id}')">${title}</td>
+              <td><span class="card-variant">${variant}</span></td>
+              <td>
+                <span class="win-badge win-${p.winTier}">
+                  ${p.winScore}/100 (${p.winRate}) • ${getTierLabel(p.winTier)}
+                </span>
+              </td>
+              <td>${p.pcsPerCarton}</td>
+              <td>
+                <div class="price-primary" style="font-size:0.92rem;">${formatCurrency(p.price)}</div>
+                <div class="price-secondary">${formatRefPrice(p.price)}</div>
+              </td>
+              <td>${cbmTxt} / ${kgTxt}</td>
+              <td>
+                <button type="button" class="qadd ${inCartQty > 0 ? 'in-cart' : ''}" onclick="quickAdd('${p.id}', event)">
+                  ${inCartQty > 0 ? inCartQty : '+'}
+                </button>
+              </td>
+            </tr>
+          `;
+        }).join("");
+      }
+    }
+
+    /* =========================================================================
+       5. Product Detail Modal, Image Gallery & Swipe Navigation
+       ========================================================================= */
+    function openDetail(productId) {
+      const p = PRODUCT_BY_ID[productId];
+      if (!p) return;
+      state.activeProductId = productId;
+      state.activeImgIdx = 0;
+
+      const dict = I18N[state.lang] || I18N.en;
+      document.getElementById("dTitle").textContent = getLocalizedName(p);
+      document.getElementById("dCodeBadge").textContent = p.code;
+      document.getElementById("dCatBadge").textContent = p.categoryName ? (p.categoryName[state.lang] || p.categoryName.en) : p.category;
+
+      const winBadge = document.getElementById("dWinBadge");
+      winBadge.className = `win-badge win-${p.winTier}`;
+      winBadge.textContent = `${getTierLabel(p.winTier)} • ${p.winScore}/100`;
+
+      // Show secondary language names for reference
+      const subNames = [];
+      if (state.lang !== "en") subNames.push(`EN: ${p.en}`);
+      if (state.lang !== "si") subNames.push(`SI: ${p.si}`);
+      if (state.lang !== "zh") subNames.push(`ZH: ${p.zh}`);
+      document.getElementById("dSubNames").textContent = subNames.join("  |  ");
+      document.getElementById("dVariantBadge").textContent = getLocalizedVariant(p);
+
+      // Unit & Carton Prices
+      const cartonRmb = p.price * (p.pcsPerCarton || 1);
+      document.getElementById("dUnitPriceLbl").textContent = dict.unitPrice;
+      document.getElementById("dCartonPriceLbl").textContent = `${dict.cartonPrice} (${p.pcsPerCarton} pcs)`;
+      document.getElementById("dPrice").textContent = formatCurrency(p.price);
+      document.getElementById("dPriceRef").textContent = formatRefPrice(p.price);
+      document.getElementById("dCartonPrice").textContent = formatCurrency(cartonRmb);
+      document.getElementById("dCartonRef").textContent = formatRefPrice(cartonRmb);
+
+      // Specs Grid
+      const specsHtml = [
+        { lbl: dict.pcsPerCtn, val: `${p.pcsPerCarton} pcs` },
+        { lbl: dict.cartonCbm, val: p.cbm != null ? `${p.cbm} m³` : "—" },
+        { lbl: dict.cartonKg, val: p.kg != null ? `${p.kg} kg` : "—" },
+        { lbl: dict.boxSize, val: p.box || "—" }
+      ];
+      document.getElementById("dSpecsGrid").innerHTML = specsHtml.map(s => `
+        <div class="spec-item">
+          <div class="spec-label">${s.lbl}</div>
+          <div class="spec-val">${s.val}</div>
+        </div>
+      `).join("");
+
+      // SL-WPI 4-Pillar Breakdown Box
+      document.getElementById("dWpiTitle").textContent = dict.wpiTitle;
+      const scorePill = document.getElementById("dWpiScorePill");
+      scorePill.className = `win-badge win-${p.winTier}`;
+      scorePill.textContent = `${p.winScore} / 100 (${p.winRate})`;
+      document.getElementById("dWpiReason").textContent = p.winReason ? (p.winReason[state.lang] || p.winReason.en) : "";
+
+      const b = p.winBreakdown || {};
+      const pillars = [
+        { key: "freight", label: dict.pillarFreight, data: b.freight },
+        { key: "margin", label: dict.pillarMargin, data: b.margin },
+        { key: "demand", label: dict.pillarDemand, data: b.demand },
+        { key: "risk", label: dict.pillarRisk, data: b.risk }
+      ];
+      document.getElementById("dWinPillars").innerHTML = pillars.map(pl => {
+        const sc = pl.data ? pl.data.score : 0;
+        const mx = pl.data ? (pl.data.max || 25) : 25;
+        const pct = Math.min(100, Math.round((sc / mx) * 100));
+        const desc = pl.data && pl.data.desc ? (pl.data.desc[state.lang] || pl.data.desc.en) : "";
+        return `
+          <div class="pillar-item">
+            <div class="pillar-top">
+              <span>${pl.label}</span>
+              <span>${sc} / ${mx} pts</span>
+            </div>
+            <div class="pillar-bar-bg">
+              <div class="pillar-bar-fill" style="width:${pct}%;"></div>
+            </div>
+            <div class="pillar-desc">${desc}</div>
+          </div>
+        `;
+      }).join("");
+
+      // Quantity input
+      document.getElementById("dQty").value = state.cart[p.id] || 1;
+      document.getElementById("dAddBtn").textContent = dict.addToQuote;
+
+      renderDetailGallery(p);
+      document.getElementById("detail").classList.add("open");
+    }
+    window.openDetail = openDetail;
+
+    function renderDetailGallery(p) {
+      const imgs = (p.images && p.images.length) ? p.images : [p.image];
+      const thumbs = (p.thumbs && p.thumbs.length) ? p.thumbs : [p.thumb];
+      const idx = Math.max(0, Math.min(state.activeImgIdx, imgs.length - 1));
+      state.activeImgIdx = idx;
+
+      document.getElementById("dImg").src = imgs[idx] || "";
+      const thumbsEl = document.getElementById("dThumbs");
+      thumbsEl.innerHTML = thumbs.map((tSrc, i) => `
+        <img src="${tSrc}" alt="Thumb ${i + 1}" class="thumb-item ${i === idx ? 'active' : ''}" onclick="selectGalleryImg(${i})">
+      `).join("");
+    }
+
+    function selectGalleryImg(idx) {
+      const p = PRODUCT_BY_ID[state.activeProductId];
+      if (!p) return;
+      state.activeImgIdx = idx;
+      renderDetailGallery(p);
+    }
+    window.selectGalleryImg = selectGalleryImg;
+
+    function navigateDetailProduct(delta) {
+      const list = state.filteredProducts.length ? state.filteredProducts : PRODUCTS;
+      const curIdx = list.findIndex(item => item.id === state.activeProductId);
+      if (curIdx === -1) return;
+      const nextIdx = (curIdx + delta + list.length) % list.length;
+      openDetail(list[nextIdx].id);
+    }
+
+    /* =========================================================================
+       6. Quotation Cart, Calculations, Print & CSV Export
+       ========================================================================= */
+    function saveCart() {
+      try {
+        localStorage.setItem(STORAGE_KEYS.CART, JSON.stringify(state.cart));
+      } catch (e) {}
+      updateCartUI();
+      renderProducts();
+    }
+
+    function quickAdd(productId, ev) {
+      if (ev) ev.stopPropagation();
+      state.cart[productId] = (state.cart[productId] || 0) + 1;
+      saveCart();
+    }
+    window.quickAdd = quickAdd;
+
+    function updateCartItemQty(productId, cartons) {
+      const n = parseInt(cartons, 10);
+      if (!Number.isFinite(n) || n <= 0) {
+        delete state.cart[productId];
+      } else {
+        state.cart[productId] = n;
+      }
+      saveCart();
+    }
+    window.updateCartItemQty = updateCartItemQty;
+
+    function computeCartTotals() {
+      let totalCartons = 0;
+      let totalPcs = 0;
+      let totalRmb = 0;
+      let totalCbm = 0;
+      let totalKg = 0;
+      const items = [];
+
+      Object.keys(state.cart).forEach(pid => {
+        const p = PRODUCT_BY_ID[pid];
+        const cartons = parseInt(state.cart[pid], 10) || 0;
+        if (!p || cartons <= 0) return;
+
+        const pcs = cartons * (Number(p.pcsPerCarton) || 1);
+        const rmb = pcs * (Number(p.price) || 0);
+        // Safely handle null CBM and null KG without NaN
+        const cbm = p.cbm != null && Number.isFinite(Number(p.cbm)) ? cartons * Number(p.cbm) : 0;
+        const kg = p.kg != null && Number.isFinite(Number(p.kg)) ? cartons * Number(p.kg) : 0;
+
+        totalCartons += cartons;
+        totalPcs += pcs;
+        totalRmb += rmb;
+        totalCbm += cbm;
+        totalKg += kg;
+
+        items.push({ p, cartons, pcs, rmb, cbm, kg });
+      });
+
+      return { items, totalCartons, totalPcs, totalRmb, totalCbm, totalKg };
+    }
+    window.computeCartTotals = computeCartTotals;
+
+    function updateCartUI() {
+      const dict = I18N[state.lang] || I18N.en;
+      const totals = computeCartTotals();
+
+      document.getElementById("cartCountBadge").textContent = totals.totalCartons;
+
+      // Mobile Floating Bottom Cart Bar
+      const mBar = document.getElementById("mobileCartBar");
+      if (totals.totalCartons > 0) {
+        mBar.classList.add("visible");
+        document.getElementById("mCartSummary").textContent = `${totals.totalCartons} Ctns (${totals.totalPcs} pcs) • ${formatCurrency(totals.totalRmb)}`;
+      } else {
+        mBar.classList.remove("visible");
+      }
+
+      // Cart Modal Table
+      const emptyEl = document.getElementById("cartEmptyMsg");
+      const wrapEl = document.getElementById("cartTableWrap");
+      const bodyEl = document.getElementById("cartBody");
+
+      if (totals.items.length === 0) {
+        emptyEl.style.display = "block";
+        emptyEl.textContent = dict.cartEmpty;
+        wrapEl.style.display = "none";
+      } else {
+        emptyEl.style.display = "none";
+        wrapEl.style.display = "block";
+        bodyEl.innerHTML = totals.items.map(({ p, cartons, pcs, rmb, cbm, kg }) => `
+          <tr>
+            <td><strong>${p.code}</strong></td>
+            <td>
+              <div style="font-weight:700;">${getLocalizedName(p)}</div>
+              <div style="font-size:0.75rem; color:var(--text-light);">${getLocalizedVariant(p)}</div>
+            </td>
+            <td>
+              <input type="number" min="1" value="${cartons}" style="width:68px; height:40px; text-align:center; border:1px solid var(--border-strong); border-radius:6px; font-weight:700;"
+                onchange="updateCartItemQty('${p.id}', this.value)">
+            </td>
+            <td>${pcs} (${p.pcsPerCarton}/ctn)</td>
+            <td>
+              <div>${formatCurrency(p.price)}</div>
+              <div style="font-size:0.72rem; color:var(--text-light);">¥${p.price.toFixed(2)}</div>
+            </td>
+            <td>
+              <div style="font-weight:700;">${formatCurrency(rmb)}</div>
+              <div style="font-size:0.72rem; color:var(--text-light);">¥${rmb.toFixed(2)}</div>
+            </td>
+            <td>${cbm.toFixed(3)} m³ / ${kg.toFixed(2)} kg</td>
+            <td>
+              <button type="button" class="rm" onclick="updateCartItemQty('${p.id}', 0)" aria-label="Remove item">✕</button>
+            </td>
+          </tr>
+        `).join("");
+      }
+
+      // Sticky Summary Bar
+      document.getElementById("totCartons").textContent = totals.totalCartons;
+      document.getElementById("totPcs").textContent = totals.totalPcs;
+      document.getElementById("totCbm").textContent = `${totals.totalCbm.toFixed(3)} m³`;
+      document.getElementById("totKg").textContent = `${totals.totalKg.toFixed(2)} kg`;
+      document.getElementById("totAmount").textContent = formatCurrency(totals.totalRmb);
+      document.getElementById("totAmountRef").textContent = `¥${totals.totalRmb.toFixed(2)} RMB`;
+    }
+
+    function csvEscape(val) {
+      const s = String(val == null ? "" : val);
+      if (s.includes(",") || s.includes('"') || s.includes("\n")) {
+        return '"' + s.replace(/"/g, '""') + '"';
+      }
+      return s;
+    }
+
+    function buildCartCSVString() {
+      const dict = I18N[state.lang] || I18N.en;
+      const totals = computeCartTotals();
+      const headers = dict.csvHeaders;
+      const rows = [headers.map(csvEscape).join(",")];
+
+      totals.items.forEach(({ p, cartons, pcs, rmb, cbm, kg }) => {
+        const unitActive = convertFromRmb(p.price, state.curr).toFixed(2);
+        const totActive = convertFromRmb(rmb, state.curr).toFixed(2);
+        const row = [
+          p.code,
+          getLocalizedVariant(p),
+          getLocalizedName(p),
+          p.en,
+          p.zh,
+          p.winScore,
+          p.winRate,
+          p.winTier,
+          cartons,
+          p.pcsPerCarton,
+          pcs,
+          `${currSymbol()} ${unitActive}`,
+          p.price.toFixed(2),
+          `${currSymbol()} ${totActive}`,
+          rmb.toFixed(2),
+          cbm.toFixed(4),
+          kg.toFixed(2),
+          p.box || ""
+        ];
+        rows.push(row.map(csvEscape).join(","));
+      });
+
+      // Properly column-aligned TOTAL summary row (exact 18 columns matching headers)
+      const grandActive = convertFromRmb(totals.totalRmb, state.curr).toFixed(2);
+      const totalRow = [
+        "TOTAL",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        totals.totalCartons,
+        "",
+        totals.totalPcs,
+        "",
+        "",
+        `${currSymbol()} ${grandActive}`,
+        totals.totalRmb.toFixed(2),
+        totals.totalCbm.toFixed(4),
+        totals.totalKg.toFixed(2),
+        ""
+      ];
+      rows.push(totalRow.map(csvEscape).join(","));
+
+      return "\uFEFF" + rows.join("\r\n");
+    }
+    window.buildCartCSVString = buildCartCSVString;
+
+    function exportCartCSV() {
+      const totals = computeCartTotals();
+      if (totals.items.length === 0) return;
+      const csvContent = buildCartCSVString();
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `Jiayu_Quotation_${state.curr}_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    /* =========================================================================
+       7. UI Language & Exchange Rates Sync
+       ========================================================================= */
+    function updateUIStrings() {
+      const dict = I18N[state.lang] || I18N.en;
+      document.documentElement.lang = state.lang;
+      document.getElementById("uiTitle").textContent = dict.title;
+      document.getElementById("uiSubtitle").textContent = dict.subtitle;
+      document.getElementById("uiQuoteBtn").textContent = dict.quoteBtn;
+      document.getElementById("q").placeholder = dict.searchPlaceholder;
+      document.getElementById("uiPriceRangeLbl").textContent = `${dict.priceRange} (${currSymbol()}):`;
+
+      document.getElementById("optSortWinDesc").textContent = dict.sortWinDesc;
+      document.getElementById("optSortWinAsc").textContent = dict.sortWinAsc;
+      document.getElementById("optSortPriceAsc").textContent = dict.sortPriceAsc;
+      document.getElementById("optSortPriceDesc").textContent = dict.sortPriceDesc;
+      document.getElementById("optSortPcsDesc").textContent = dict.sortPcsDesc;
+      document.getElementById("optSortCbmAsc").textContent = dict.sortCbmAsc;
+      document.getElementById("optSortCodeAsc").textContent = dict.sortCodeAsc;
+
+      document.getElementById("thImg").textContent = dict.thImg;
+      document.getElementById("thCode").textContent = dict.thCode;
+      document.getElementById("thName").textContent = dict.thName;
+      document.getElementById("thVariant").textContent = dict.thVariant;
+      document.getElementById("thWin").textContent = dict.thWin;
+      document.getElementById("thPcs").textContent = dict.thPcs;
+      document.getElementById("thPrice").textContent = dict.thPrice;
+      document.getElementById("thCbm").textContent = dict.thCbm;
+      document.getElementById("thAct").textContent = dict.thAct;
+
+      document.getElementById("uiCartModalTitle").textContent = dict.cartTitle;
+      document.getElementById("lblTotCartons").textContent = dict.totCartons;
+      document.getElementById("lblTotPcs").textContent = dict.totPcs;
+      document.getElementById("lblTotCbm").textContent = dict.totCbm;
+      document.getElementById("lblTotKg").textContent = dict.totKg;
+      document.getElementById("lblTotAmount").textContent = dict.totAmount;
+      document.getElementById("exportCsvBtn").textContent = dict.exportCsv;
+      document.getElementById("printQuoteBtn").textContent = dict.printQuote;
+      document.getElementById("clearCartBtn").textContent = dict.clearCart;
+
+      document.getElementById("uiRatesTitle").textContent = dict.ratesTitle;
+      document.getElementById("saveRatesBtn").textContent = dict.saveRates;
+      document.getElementById("resetRatesBtn").textContent = dict.resetRates;
+
+      updateRatesDisplay();
+      renderCategories();
+      applyFiltersAndSort();
+      updateCartUI();
+    }
+
+    function updateRatesDisplay() {
+      const pill = document.getElementById("ratesPillText");
+      if (state.curr === "USD") {
+        pill.textContent = `$1 = ¥${state.rates.USD.toFixed(2)}`;
+      } else {
+        pill.textContent = `1¥ = රු.${state.rates.LKR.toFixed(2)}`;
+      }
+      document.getElementById("activeRateHint").textContent =
+        `1 USD = ${state.rates.USD.toFixed(2)} RMB • 1 RMB = ${state.rates.LKR.toFixed(2)} LKR`;
+    }
+
+    function updateRatesModalPreview() {
+      const u = parseDecimalInput(document.getElementById("rateUsd").value, state.rates.USD);
+      const l = parseDecimalInput(document.getElementById("rateLkr").value, state.rates.LKR);
+      const samples = [10, 25, 50];
+      const lines = samples.map(rmb =>
+        `¥${rmb} RMB = <strong>රු. ${(rmb * l).toFixed(2)} LKR</strong> = <strong>$${(rmb / u).toFixed(2)} USD</strong>`
+      );
+      document.getElementById("ratePreview").innerHTML = lines.join("<br>");
+    }
+
+    /* =========================================================================
+       8. Event Listeners & Mobile Bottom Sheet Touch Gestures
+       ========================================================================= */
+    function initEvents() {
+      const langSel = document.getElementById("lang");
+      const currSel = document.getElementById("curr");
+      langSel.value = state.lang;
+      currSel.value = state.curr;
+
+      langSel.addEventListener("change", () => {
+        state.lang = langSel.value;
+        try { localStorage.setItem(STORAGE_KEYS.LANG, state.lang); } catch (e) {}
+        updateUIStrings();
+      });
+
+      currSel.addEventListener("change", () => {
+        state.curr = currSel.value;
+        try { localStorage.setItem(STORAGE_KEYS.CURR, state.curr); } catch (e) {}
+        updateUIStrings();
+      });
+
+      const qInput = document.getElementById("q");
+      const qClear = document.getElementById("qClear");
+      qInput.addEventListener("input", () => {
+        state.q = qInput.value;
+        qClear.style.display = state.q ? "flex" : "none";
+        applyFiltersAndSort();
+      });
+      qClear.addEventListener("click", () => {
+        qInput.value = "";
+        state.q = "";
+        qClear.style.display = "none";
+        applyFiltersAndSort();
+      });
+
+      document.getElementById("pmin").addEventListener("input", e => {
+        state.pmin = e.target.value;
+        applyFiltersAndSort();
+      });
+      document.getElementById("pmax").addEventListener("input", e => {
+        state.pmax = e.target.value;
+        applyFiltersAndSort();
+      });
+
+      document.getElementById("sort").addEventListener("change", e => {
+        state.sort = e.target.value;
+        applyFiltersAndSort();
+      });
+
+      document.getElementById("viewGrid").addEventListener("click", () => {
+        state.view = "grid";
+        document.getElementById("viewGrid").classList.add("active");
+        document.getElementById("viewList").classList.remove("active");
+        renderProducts();
+      });
+      document.getElementById("viewList").addEventListener("click", () => {
+        state.view = "list";
+        document.getElementById("viewList").classList.add("active");
+        document.getElementById("viewGrid").classList.remove("active");
+        renderProducts();
+      });
+
+      // Detail Modal controls
+      document.getElementById("dClose").addEventListener("click", () => {
+        document.getElementById("detail").classList.remove("open");
+      });
+      document.getElementById("dQtyMinus").addEventListener("click", () => {
+        const inp = document.getElementById("dQty");
+        inp.value = Math.max(1, (parseInt(inp.value, 10) || 1) - 1);
+      });
+      document.getElementById("dQtyPlus").addEventListener("click", () => {
+        const inp = document.getElementById("dQty");
+        inp.value = (parseInt(inp.value, 10) || 1) + 1;
+      });
+      document.getElementById("dAddBtn").addEventListener("click", () => {
+        if (!state.activeProductId) return;
+        const qty = Math.max(1, parseInt(document.getElementById("dQty").value, 10) || 1);
+        state.cart[state.activeProductId] = qty;
+        saveCart();
+        document.getElementById("detail").classList.remove("open");
+      });
+
+      document.getElementById("dPrevImg").addEventListener("click", () => {
+        const p = PRODUCT_BY_ID[state.activeProductId];
+        if (!p) return;
+        const imgs = (p.images && p.images.length) ? p.images : [p.image];
+        if (imgs.length > 1) {
+          state.activeImgIdx = (state.activeImgIdx - 1 + imgs.length) % imgs.length;
+          renderDetailGallery(p);
+        } else {
+          navigateDetailProduct(-1);
+        }
+      });
+      document.getElementById("dNextImg").addEventListener("click", () => {
+        const p = PRODUCT_BY_ID[state.activeProductId];
+        if (!p) return;
+        const imgs = (p.images && p.images.length) ? p.images : [p.image];
+        if (imgs.length > 1) {
+          state.activeImgIdx = (state.activeImgIdx + 1) % imgs.length;
+          renderDetailGallery(p);
+        } else {
+          navigateDetailProduct(1);
+        }
+      });
+
+      // Left/Right touch swipe product navigation in Detail Modal (excluding #dThumbs, inputs, buttons)
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let ignoreSwipe = false;
+      const detailBody = document.getElementById("detailBody");
+      detailBody.addEventListener("touchstart", e => {
+        const t = e.target;
+        if (t.closest("#dThumbs") || t.closest("input") || t.closest("button") || t.closest("select")) {
+          ignoreSwipe = true;
+          return;
+        }
+        ignoreSwipe = false;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      detailBody.addEventListener("touchend", e => {
+        if (ignoreSwipe || !e.changedTouches.length) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+          if (dx < 0) navigateDetailProduct(1);
+          else navigateDetailProduct(-1);
+        }
+      }, { passive: true });
+
+      // Cart Modal controls
+      const openCartModal = () => {
+        updateCartUI();
+        document.getElementById("cart").classList.add("open");
+      };
+      document.getElementById("cartBtn").addEventListener("click", openCartModal);
+      document.getElementById("mobileCartBar").addEventListener("click", openCartModal);
+      document.getElementById("cartClose").addEventListener("click", () => {
+        document.getElementById("cart").classList.remove("open");
+      });
+      document.getElementById("exportCsvBtn").addEventListener("click", exportCartCSV);
+      document.getElementById("printQuoteBtn").addEventListener("click", () => {
+        document.getElementById("printMetaDate").textContent =
+          `Date: ${new Date().toLocaleString()} | Currency: ${state.curr} (1 USD = ${state.rates.USD} RMB, 1 RMB = ${state.rates.LKR} LKR)`;
+        window.print();
+      });
+      document.getElementById("clearCartBtn").addEventListener("click", () => {
+        state.cart = {};
+        saveCart();
+      });
+
+      // Exchange Rates Modal controls
+      document.getElementById("ratesBtn").addEventListener("click", () => {
+        document.getElementById("rateUsd").value = state.rates.USD;
+        document.getElementById("rateLkr").value = state.rates.LKR;
+        updateRatesModalPreview();
+        document.getElementById("ratesModal").classList.add("open");
+      });
+      document.getElementById("ratesClose").addEventListener("click", () => {
+        document.getElementById("ratesModal").classList.remove("open");
+      });
+      document.getElementById("rateUsd").addEventListener("input", updateRatesModalPreview);
+      document.getElementById("rateLkr").addEventListener("input", updateRatesModalPreview);
+      document.getElementById("saveRatesBtn").addEventListener("click", () => {
+        state.rates.USD = parseDecimalInput(document.getElementById("rateUsd").value, DEFAULT_RATES.USD);
+        state.rates.LKR = parseDecimalInput(document.getElementById("rateLkr").value, DEFAULT_RATES.LKR);
+        try { localStorage.setItem(STORAGE_KEYS.RATES, JSON.stringify(state.rates)); } catch (e) {}
+        document.getElementById("ratesModal").classList.remove("open");
+        updateUIStrings();
+      });
+      document.getElementById("resetRatesBtn").addEventListener("click", () => {
+        state.rates = { ...DEFAULT_RATES };
+        document.getElementById("rateUsd").value = DEFAULT_RATES.USD;
+        document.getElementById("rateLkr").value = DEFAULT_RATES.LKR;
+        try { localStorage.removeItem(STORAGE_KEYS.RATES); } catch (e) {}
+        updateRatesModalPreview();
+        updateUIStrings();
+      });
+
+      // Backdrop click to close modals
+      ["detail", "cart", "ratesModal"].forEach(mid => {
+        const el = document.getElementById(mid);
+        el.addEventListener("click", e => {
+          if (e.target === el) el.classList.remove("open");
+        });
+      });
+
+      // Pull-down-to-dismiss touch gestures on .sheet-handle grabber bars
+      document.querySelectorAll(".sheet-handle").forEach(handle => {
+        let startY = 0;
+        let currentY = 0;
+        const modalId = handle.getAttribute("data-dismiss");
+        const modalEl = document.getElementById(modalId);
+        const sheetEl = handle.parentElement;
+
+        handle.addEventListener("touchstart", e => {
+          startY = e.touches[0].clientY;
+          currentY = startY;
+          sheetEl.style.transition = "none";
+        }, { passive: true });
+
+        handle.addEventListener("touchmove", e => {
+          currentY = e.touches[0].clientY;
+          const dy = Math.max(0, currentY - startY);
+          sheetEl.style.transform = `translateY(${dy}px)`;
+        }, { passive: true });
+
+        handle.addEventListener("touchend", () => {
+          sheetEl.style.transition = "transform 0.22s ease-out";
+          if (currentY - startY > 75) {
+            modalEl.classList.remove("open");
+          }
+          sheetEl.style.transform = "";
+        });
+      });
+    }
+
+    // Boot Application
+    initEvents();
+    updateUIStrings();
+  </script>
+</body>
+</html>
